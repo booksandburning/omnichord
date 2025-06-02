@@ -1,0 +1,31 @@
+{
+  "short_name": "Omnichord",
+  "name": "OMNICHORD: A Sonic Ritual Engine",
+  "icons": [
+    {
+      "src": "/assets/images/sigil.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "description": "A sonic ritual engine built in the browser.",
+  "resources": {
+    "presets": [
+      "/src/rituals/dusk.json",
+      "/src/rituals/morning.json"
+    ],
+    "effects": [
+      "shimmer",
+      "portalDelay",
+      "bitcrush"
+    ],
+    "samples": [
+      "/samples/morning-drone.mp3",
+      "/samples/dusk-drone.mp3"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+:root {
+  --primary-color: #6200ea;
+  --secondary-color: #ff81fd;
+  --background-color: #f5f5f5;
+  --text-color: #212121;
+  --button-color: #ff4081;
+  --accent-color: #ffab00;
+  --surface-color: #ffffff;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+/* Add a new class for cards */
+.card {
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,30 @@
+.chord-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.chord-button {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.chord-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.chord-button.selected {
+  background-color: var(--primary-color);
+  color: white;
+}

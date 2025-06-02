@@ -1,0 +1,39 @@
+.rhythm-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rhythm-section h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.sequencer-container {
+  margin-bottom: 20px;
+}
+
+.drum-controls {
+  margin-top: 20px;
+}
+
+.drum-selector {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 15px;
+}
+
+.drum-selector:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}

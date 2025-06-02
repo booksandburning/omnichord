@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMNICHORD // Ritual Engine</title>
+
+  <meta name="description" content="A browser-native ambient ritual synthesizer powered by tone.js and cosmic drift." />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:title" content="OMNICHORD // Ritual Engine" />
+  <meta property="og:description" content="Cast spells. Drift modes. Ritualize sound." />
+  <meta property="og:image" content="/assets/images/sigil.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/images/sigil.png" />
+</head>
+<body class="bg-black text-white font-mono">
+
+  <noscript>
+    <div style="padding: 2em; text-align: center;">
+      JavaScript is required to cast rituals. Enable it, wanderer.
+    </div>
+  </noscript>
+
+  <div id="root"></div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('🔮 ServiceWorker registered', reg))
+          .catch(err => console.error('🛑 ServiceWorker failed', err));
+      });
+    }
+  </script>
+</body>
+</html>
