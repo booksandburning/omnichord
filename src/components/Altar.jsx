@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import * as Tone from 'tone';
 import SamplerPanel from './SamplerPanel';
+import GlobalControlBar from './GlobalControlBar'; // New: Import the fixed component
 
 // For OscillatorPanel, define a basic placeholder if it doesn't exist
 const OscillatorPanel = ({ oscId, onChange }) => (
   <div className="bg-zinc-800 border border-blue-700 p-4 rounded-xl shadow-md">
     <h3 className="text-blue-300 font-mono text-sm mb-2">Oscillator {oscId}</h3>
     <div className="space-y-2">
-      <select 
+      <select
         className="bg-zinc-900 text-white text-xs p-1 rounded w-full mb-2"
         onChange={e => onChange({ waveform: e.target.value })}
         defaultValue="sine"
@@ -20,10 +21,10 @@ const OscillatorPanel = ({ oscId, onChange }) => (
       </select>
       <div>
         <label className="text-xs text-gray-400 block">Detune</label>
-        <input 
-          type="range" 
-          min="-50" 
-          max="50" 
+        <input
+          type="range"
+          min="-50"
+          max="50"
           defaultValue="0"
           onChange={e => onChange({ detune: parseInt(e.target.value) })}
           className="w-full"
@@ -31,10 +32,10 @@ const OscillatorPanel = ({ oscId, onChange }) => (
       </div>
       <div>
         <label className="text-xs text-gray-400 block">Octave</label>
-        <input 
-          type="range" 
-          min="-2" 
-          max="2" 
+        <input
+          type="range"
+          min="-2"
+          max="2"
           defaultValue="0"
           step="1"
           onChange={e => onChange({ octave: parseInt(e.target.value) })}
@@ -63,28 +64,11 @@ const SynthSequencer = () => (
     <h3 className="text-yellow-300 font-mono text-sm mb-2">Synth Sequencer</h3>
     <div className="grid grid-cols-8 gap-1">
       {[...Array(8)].map((_, i) => (
-        <button 
+        <button
           key={i}
           className="bg-zinc-700 hover:bg-yellow-600 h-12 rounded-sm"
         ></button>
       ))}
-    </div>
-  </div>
-);
-
-// Define a basic GlobalControlBar placeholder
-const GlobalControlBar = () => (
-  <div className="bg-zinc-800 border border-purple-700 p-4 rounded-xl shadow-md">
-    <h3 className="text-purple-300 font-mono text-sm mb-2">Global Controls</h3>
-    <div className="grid grid-cols-2 gap-4">
-      <div>
-        <label className="text-xs text-gray-400 block">BPM</label>
-        <input type="range" min="60" max="180" defaultValue="120" className="w-full" />
-      </div>
-      <div>
-        <label className="text-xs text-gray-400 block">Volume</label>
-        <input type="range" min="-60" max="0" defaultValue="-10" className="w-full" />
-      </div>
     </div>
   </div>
 );
