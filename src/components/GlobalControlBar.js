@@ -4,43 +4,65 @@ import * as Tone from 'tone';
 
 const GlobalControlBar = () => {
   const [bpm, setBpm] = useState(120);
-  const [volume, setVolume] = useState(-10);
+  const [swing, setSwing] = useState(0);
+  const [volume, setVolume] = useState(-10); // Changed initial value to a safer -10 dB
 
   useEffect(() => {
     Tone.Transport.bpm.value = bpm;
   }, [bpm]);
 
   useEffect(() => {
-    // The volume value is already in decibels, so we can pass it directly
+    Tone.Transport.swing = swing;
+  }, [swing]);
+
+  useEffect(() => {
+    // FIX: Use Tone.Master for the master volume control
     Tone.Master.volume.value = volume;
   }, [volume]);
 
   return (
-    <div className="bg-zinc-800 border border-purple-700 p-4 rounded-xl shadow-md">
-      <h3 className="text-purple-300 font-mono text-sm mb-2">Global Controls</h3>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="text-xs text-gray-400 block">BPM ({bpm})</label>
+    <div className="bg-zinc-900 border border-indigo-700 p-4 rounded-xl flex flex-col gap-3">
+      <h3 className="text-indigo-300 font-mono text-sm mb-1">Global Controls</h3>
+
+      <div className="flex flex-col gap-2">
+        <label className="text-xs font-mono text-indigo-200">
+          Tempo: {bpm} BPM
           <input
             type="range"
-            min="60"
-            max="180"
+            min="40"
+            max="200"
+            step="1"
             value={bpm}
-            onChange={(e) => setBpm(e.target.value)}
+            onChange={(e) => setBpm(parseInt(e.target.value))}
             className="w-full"
           />
-        </div>
-        <div>
-          <label className="text-xs text-gray-400 block">Volume ({volume} dB)</label>
+        </label>
+
+        <label className="text-xs font-mono text-indigo-200">
+          Swing: {(swing * 100).toFixed(0)}%
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={swing}
+            onChange={(e) => setSwing(parseFloat(e.target.value))}
+            className="w-full"
+          />
+        </label>
+
+        <label className="text-xs font-mono text-indigo-200">
+          Master Volume: {volume} dB
           <input
             type="range"
             min="-60"
             max="0"
+            step="1"
             value={volume}
-            onChange={(e) => setVolume(e.target.value)}
+            onChange={(e) => setVolume(parseInt(e.target.value))}
             className="w-full"
           />
-        </div>
+        </label>
       </div>
     </div>
   );
